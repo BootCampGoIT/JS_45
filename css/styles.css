@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.headerList {
+  display: flex;
+  list-style: none;
+}
+.headerListItem:not(:last-child) {
+  margin-right: 20px;
+}
+.headerListLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: cornflowerblue;
+}
+/* ======================= */
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+  padding: 10px;
+  list-style: none;
+}
+
+.productListItem {
+  padding: 5px;
+  width: 50%;
+}
+.productListItemWrapper {
+  border: 1px solid black;
+  border-radius: 16px;
+  padding: 10px;
+}

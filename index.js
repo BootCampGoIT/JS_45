@@ -1,213 +1,168 @@
-// spread
+// [].method((item, idx, arr) => {
+//   // логика которая будет применяться на каждой итерации
+// });
 
-// const group = {
-//   courses: {
-//     html_css: {
-//       isActive: false,
-//     },
-//     javaScript: {
-//       isActive: false,
-//     },
-//     react: {
-//       isActive: false,
-//     },
-//   },
-//   prop: "fghj",
-// };
+// const arr = [1, 2, 3, 4, 5];
 
-// const deepCopy = (object) => {
-//   const newObject = {};
-//   // =============
-//   const getProps = (object, dist) => {
-//     const keys = Object.keys(object);
-//     for (const key of keys) {
-//       if (object[key].constructor.name === "Object") {
-//         dist[key] = getProps(object[key], dist[key]);
-//       } else object[key] = dist[key];
-//     }
-//     return newObject;
-//   };
-//   // ===============
-//   getProps(object, newObject);
-// };
-// deepCopy(group);
+//! map()
+// const arr = [{isOnline: true}, true, true, true, false];
+// const arr = [true, true, true, true, false];
+// const res = arr.map((isOnline) => {{ isOnline }});
+// console.log(res);
+// const arr = ["Home", "About", "Contacts"];
 
-// const FE45 = JSON.parse(JSON.stringify(group));
-// FE45.courses.html_css.isActive = true;
-// console.log(FE45);
-// console.log(group);
+// const res = arr.map((item) => `<li>${item}</li>`).join("");
+// console.log(`res`, res);
+// =============
+// const students = [
+//   { name: "Манго", score: 83 },
+//   { name: "Поли", score: 59 },
+//   { name: "Аякс", score: 37 },
+//   { name: "Киви", score: 94 },
+//   { name: "Хьюстон", score: 64 },
+// ];
 
-// =================
+// const res = students.map(({ score }) => score);
+// console.log(`res`, res);
 
-// const obj = {
-//   name: "Alex",
-//   courses: {
-//     first: "dgfhj",
-//     second: {
-//       fgh: "dtfyguhj",
-//     },
-//   },
-// };
+//! flatMap()
 
-// const data = JSON.parse(JSON.stringify(obj));
-// console.log(obj);
-// console.log(data);
-// data.courses.first = "Lorem, ipsum.";
-// console.log(obj);
-// console.log(data);
+// const students = [
+//   { name: "Манго", courses: ["435tetrtr", "345terte"] },
+//   { name: "Поли", courses: ["434243", "fteter45"] },
+//   { name: "Киви", courses: ["физика", "биология"] },
+// ];
 
-// const newObj = { ...obj, status: "online" };
-// newObj.courses.first = "Lorem, ipsum.";
+// const res = [...new Set(students.flatMap(({ courses }) => courses))];
+// console.log(`res`, res);
 
-// newObj.name = "Nikita";
-// console.log(newObj);
-// console.log(obj);
-
+//! filter()
+// const students = [
+//   { name: "Манго", score: 83 },
+//   { name: "Поли", score: 59 },
+//   { name: "Аякс", score: 37 },
+//   { name: "Киви", score: 94 },
+//   { name: "Хьюстон", score: 64 },
+// ];
+// const res = students.filter(({ score }) => score > 50);
+// console.log(`res`, res);
 // =====================
+// const students = [
+//   { id: "erwre", name: "Манго", score: 83 },
+//   { id: "wer4", name: "Поли", score: 59 },
+//   { id: "ewrwer", name: "Аякс", score: 37 },
+//   { id: "423432", name: "Киви", score: 94 },
+//   { id: "ewrewrewr", name: "Хьюстон", score: 64 },
+// ];
 
-// const props = {
-//   name: "Nikita",
-// };
-// const newObject = {
-//   name: "Alex",
-// };
-// const result = { ...props, id: "sdfghj313213123", ...newObject };
-// console.log(result);
+// const deleteItem = (id) => students.filter((student) => student.id !== id);
+// console.log(deleteItem("423432"));
 
-// const shop = {
-//   products: [],
-// };
+// ==============
+// const filter = "hello";
 
-// const addProduct = (product) => {
-//   shop.products = [...shop.products, product];
-//   console.log(shop.products);
-// };
+// const groups = [{ groupName: "Hello" }, { groupName: "By" }];
 
-// addProduct({ name: "Milk" });
-// addProduct({ name: "Bread" });
-// addProduct({ name: "Juice" });
+// const getFilteredGroups = () =>
+//   groups.filter((group) =>
+//     group.groupName.toLowerCase().includes(filter.toLowerCase())
+//   );
 
-// ==================
-// const getSum = (...numbers) => {
-//   let total = 0;
-//   for (const num of numbers) {
-//     total += num;
+//   console.log(getFilteredGroups())
+
+//! find()
+// const students = [
+//   { id: "erwre", name: "Манго", score: "83" },
+//   { id: "wer4", name: "Поли", score: 59 },
+//   { id: "ewreefgr", name: "Хьюстон", score: 64 },
+//   { id: "ewrwer", name: "Аякс", score: "37" },
+//   { id: "423432", name: "Киви", score: 94 },
+//   { id: "dfdfdfgdfgdfgdfg", name: "Хьюстон", score: 64 },
+// ];
+
+// const res = students.find((item) => item.name === "Хьюстон");
+// const res1 = students.some((item) => item.name === "Хьюстон");
+// const res1 = students.filter(
+//   (item) => item.score.constructor.name !== "Number"
+// );
+// console.log(res);
+// console.log(res1);
+// res && console.log("Yes");
+
+//! some()
+
+//! every()
+
+//! findIndex()
+
+// const array = [1, 2, 3, 1, 5, 7, 1, 1, 1, 1, 1];
+
+// // const set = new Set(array);
+// // console.log(set);
+// array.forEach((item) => console.log(array.indexOf(item)));
+// console.log(indexOf(arr[0]));
+
+//! reduce()
+// const students = [
+//   { id: "erwre", name: "Манго", score: 83 },
+//   { id: "wer4", name: "Поли", score: 59 },
+//   { id: "ewreefgr", name: "Хьюстон", score: 64 },
+//   { id: "ewrwer", name: "Аякс", score: 37 },
+//   { id: "423432", name: "Киви", score: 94 },
+// ];
+
+// const res = students.reduce((acc, item) => {
+//   if (item.score > 70) {
+//     acc += item.score;
 //   }
-//   return total;
-// };
+//   return acc;
+// }, 0);
+// console.log(res);
 
-// console.log(getSum(2, 3, 4, 5, 6, 7, 8));
-// console.log(getSum(2, 3, 4));
+// const res = students.reduce((acc, item) => {
+//   acc.push({ isOnline: false, ...item });
+//   return acc;
+// }, []);
 
-// =======================
+// console.log(`res`, res);
 
-// const group = {
-//   courses: {
-//     html_css: {
-//       isActive: true,
-//     },
-//     javaScript: {
-//       isActive: false,
-//     },
-//     react: {
-//       isActive: false,
-//     },
-//   },
-//   prop: "fghj",
-// };
+// const res = students.reduce((acc, { name }) => {
+//   acc += `<li>${name}</li>`;
+//   return acc;
+// }, "");
+// console.log(res); //<li>Mango</li><li>Poli</li>
 
-// const {
-//   courses: {
-//     html_css: { isActive: value },
-//   },
-// } = group;
-// console.log(value);
+// const res = students.map((item) => ({ ...item, isOnline: false }));
+// console.log(res);
 
-// const { isActive: value } = group.courses.html_css;
-// console.log(value);
+//! sort()
 
-// const value = group.courses.html_css.isActive;
-// console.log(value);
-
-// ==================
-// const products = [
-//   { name: "Milk", price: 20 },
-//   { name: "Bread", price: 30 },
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
 // ];
 
-// for (const { name, price } of products) {
-//   console.log(`${name} : ${price}`);
-// }
+// // const res = [...new Set(tweets.flatMap(({ tags }) => tags))].length;
+// const uniqueTags = tweets.reduce((acc, { tags }) => {
+//   tags.forEach((tag) => !acc.some((item) => item === tag) && acc.push(tag));
+//   return acc;
+// }, []);
 
-// ===========================
-
-// const arrays = [
-//   [1, 2, 3],
-//   [4, [12, 13, 14], 6],
-// ];
-// const [, [, [value]]] = arrays;
-// // const value = arrays[1][1][0];
-// console.log(value);
-
-// const line = [
-//   [100, 100],
-//   [400, 768],
-// ];
-// const [, [, value]] = line;
-// console.log(value);
-
-// const products = {
-//   categories: {
-//     tools: [
-//       { name: "screw", price: 20 },
-//       { name: "hummer", price: 30 },
-//       { name: "screwDriver", price: 100 },
-//     ],
-//     toys: [
-//       { name: "teadyBear", price: 10 },
-//       { name: "puzzle", price: 30 },
-//     ],
-//   },
-// };
-
-// const {
-//   categories: {
-//     tools: [, , { price }],
-//   },
-// } = products;
-
-// console.log(price);
+// console.log(uniqueTags);
 
 // ============
-// function doStuffWithBook(object) {
-//   const values = Object.values(object);
-//   for (const value of values) console.log(value);
-// }
+// const scores = [61, 19, 74, 35, 92, 56];
+// scores.sort();
+// console.log(scores); // [19, 35, 56, 61, 74, 92]
+// =====
+// const students = ["aндрей", "Андрей", "Олег", "aяя", "Борис", "Катя"];
+// students.sort();
+// console.log(students);
 
-// const getProps = (object, ...rest) => {
-//   const res = {};
-//   for (const prop of rest) {
-//     res[prop] = object[prop];
-//   }
-//   return res;
-// };
+// const arr = ["Якорь", "Яблоко"];
 
-// doStuffWithBook(
-//   getProps(
-//     {
-//       title: "The Last Kingdom",
-//       numberOfPages: 736,
-//       downloads: 10283,
-//       rating: 8.38,
-//       public: true,
-//     },
-//     "public"
-//   )
-// );
-
-const data = {
-  name: "Alex",
-};
-
-const { age = 25 } = data;
-console.log(age);
+// arr.sort();
+// console.log(arr);
